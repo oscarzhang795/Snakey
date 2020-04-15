@@ -1,0 +1,2 @@
+rootProject.name='Snakey'
+include ':app'

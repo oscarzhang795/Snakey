@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/startGameFragment">
+
+    <fragment
+        android:id="@+id/startGameFragment"
+        android:name="com.oscar.snakeapp.StartGameFragment"
+        android:label="StartGameFragment"
+        tools:layout="@layout/fragment_start_game">
+        <action
+            android:id="@+id/action_startGameFragment_to_gameBoardFragment"
+            app:destination="@id/gameBoardFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/gameBoardFragment"
+        android:name="com.oscar.snakeapp.GameBoardFragment"
+        android:label="GameBoardFragment"
+        tools:layout="@layout/fragment_game_board" />
+</navigation>
