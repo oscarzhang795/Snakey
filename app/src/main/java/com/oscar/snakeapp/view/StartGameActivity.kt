@@ -1,8 +1,8 @@
-package com.oscar.snakeapp
+package com.oscar.snakeapp.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.viewModels
+import com.oscar.snakeapp.R
 
 class StartGameActivity : AppCompatActivity() {
 

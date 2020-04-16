@@ -1,4 +1,4 @@
-package com.oscar.snakeapp
+package com.oscar.snakeapp.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import com.oscar.snakeapp.Events.FragmentEvent
+import com.oscar.snakeapp.R
 import kotlinx.android.synthetic.main.fragment_start_game.*
 
 class StartGameFragment : Fragment() {

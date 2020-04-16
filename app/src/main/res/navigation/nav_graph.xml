@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/startGameFragment"
-        android:name="com.oscar.snakeapp.StartGameFragment"
+        android:name="com.oscar.snakeapp.view.StartGameFragment"
         android:label="StartGameFragment"
         tools:layout="@layout/fragment_start_game">
         <action
@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/gameBoardFragment"
-        android:name="com.oscar.snakeapp.GameBoardFragment"
+        android:name="com.oscar.snakeapp.view.GameBoardFragment"
         android:label="GameBoardFragment"
         tools:layout="@layout/fragment_game_board" />
 </navigation>
