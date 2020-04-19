@@ -2,8 +2,8 @@ package com.oscar.snakeapp.view
 
 import android.os.Bundle
 import androidx.lifecycle.ViewModel
-import com.oscar.snakeapp.Events.FragmentEvent
-import com.oscar.snakeapp.Events.NavLiveEvent
+import com.oscar.snakeapp.events.FragmentEvent
+import com.oscar.snakeapp.events.NavLiveEvent
 import com.oscar.snakeapp.R
 
 class StartGameViewModel : ViewModel() {

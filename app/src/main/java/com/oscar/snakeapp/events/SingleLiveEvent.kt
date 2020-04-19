@@ -1,4 +1,4 @@
-package com.oscar.snakeapp.Events
+package com.oscar.snakeapp.events
 
 import androidx.annotation.MainThread
 import androidx.lifecycle.LifecycleOwner

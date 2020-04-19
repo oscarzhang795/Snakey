@@ -1,3 +1,3 @@
-package com.oscar.snakeapp.Events
+package com.oscar.snakeapp.events
 
 class NavLiveEvent : SingleLiveEvent<NavEvent>()
