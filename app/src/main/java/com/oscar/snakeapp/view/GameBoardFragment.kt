@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import com.oscar.snakeapp.Card
 import com.oscar.snakeapp.R
 import kotlinx.android.synthetic.main.fragment_game_board.*
 
@@ -20,11 +21,13 @@ class GameBoardFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        initializeGrid()
+        initializeGrid()
     }
 
     private fun initializeGrid() {
-        rv_game_board.adapter = GameBoardAdapter()
+        val cardList = arrayListOf(Card("test"), Card("test 2"), Card("test 3"), Card("test 4"),
+            Card("test5"), Card("test 6"), Card("test 7"), Card("test 8"))
+        rv_game_board.adapter = GameBoardAdapter(cardList)
         rv_game_board.layoutManager = GridLayoutManager(activity, 4)
     }
 }
