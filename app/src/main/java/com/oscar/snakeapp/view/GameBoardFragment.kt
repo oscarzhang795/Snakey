@@ -5,12 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.oscar.snakeapp.Card
 import com.oscar.snakeapp.R
+import com.oscar.snakeapp.events.FragmentEvent
 import kotlinx.android.synthetic.main.fragment_game_board.*
 
 class GameBoardFragment : Fragment() {
+
+    private val viewModel: GameBoardViewModel by activityViewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -22,12 +29,30 @@ class GameBoardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initializeGrid()
+
+        viewModel.initCardData().observe(
+            viewLifecycleOwner,
+            Observer { onChangeAdapterData(it) }
+        )
+
+        viewModel.navEvent.observe(viewLifecycleOwner, Observer {
+            if (it is FragmentEvent) {
+                findNavController().navigate(it.resourceId, it.bundle)
+            }
+        })
     }
 
     private fun initializeGrid() {
-        val cardList = arrayListOf(Card("test"), Card("test 2"), Card("test 3"), Card("test 4"),
-            Card("test5"), Card("test 6"), Card("test 7"), Card("test 8"))
-        rv_game_board.adapter = GameBoardAdapter(cardList)
+        val winConditionCallback = {
+            viewModel.incrementMatch()
+            viewModel.checkIfWin()
+        }
+
+        rv_game_board.adapter = GameBoardAdapter(mutableListOf(), winConditionCallback)
         rv_game_board.layoutManager = GridLayoutManager(activity, 4)
+    }
+
+    private fun onChangeAdapterData(cardList: List<Card>) {
+        (rv_game_board.adapter as GameBoardAdapter).setData(cardList)
     }
 }

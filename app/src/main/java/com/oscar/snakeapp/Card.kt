@@ -1,3 +1,17 @@
 package com.oscar.snakeapp
 
-class Card(val cardText: String, var isFlipped: Boolean = false)
+class Card (val imageRef: Int, val characterType: CharacterType, var isFlipped: Boolean = false) {
+
+    var isMatched = false
+
+    enum class CharacterType {
+        HEDGEHOG,
+        CHICK,
+        CAT,
+        BUNNY,
+        DOG,
+        PENGUIN,
+        OWL,
+        HAMSTER
+    }
+}

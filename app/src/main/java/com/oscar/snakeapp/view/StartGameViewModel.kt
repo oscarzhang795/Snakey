@@ -10,10 +10,6 @@ class StartGameViewModel : ViewModel() {
 
     val navEvent = NavLiveEvent()
 
-    override fun onCleared() {
-        super.onCleared()
-    }
-
     fun startGamePressed() {
         launchGameBoardFragment()
     }
@@ -25,5 +21,4 @@ class StartGameViewModel : ViewModel() {
             bundle
         )
     }
-
 }
