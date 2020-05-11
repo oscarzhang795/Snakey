@@ -36,6 +36,11 @@ class Timer {
         return timeString
     }
 
+    fun reset() {
+        minutes = 0
+        seconds = 0
+    }
+
     interface OnTickListener {
         fun onTick()
     }

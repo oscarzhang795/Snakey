@@ -1,7 +1,6 @@
 package com.oscar.snakeapp.view
 
 import android.os.Bundle
-import android.os.Handler
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -11,11 +10,6 @@ import com.oscar.snakeapp.R
 import com.oscar.snakeapp.Timer
 import com.oscar.snakeapp.events.FragmentEvent
 import com.oscar.snakeapp.events.NavLiveEvent
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import java.util.*
 
 class GameBoardViewModel : ViewModel() {
 
@@ -53,6 +47,7 @@ class GameBoardViewModel : ViewModel() {
     fun checkIfWin() {
         if (matchCount == 8) {
             launchScoreFragment()
+            timer.reset()
         }
     }
 

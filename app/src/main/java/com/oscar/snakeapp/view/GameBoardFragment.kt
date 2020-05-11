@@ -29,6 +29,7 @@ class GameBoardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initializeGrid()
+        viewModel.initTimer()
 
         viewModel.initCardData().observe(
             viewLifecycleOwner,
@@ -40,8 +41,6 @@ class GameBoardFragment : Fragment() {
                 findNavController().navigate(it.resourceId, it.bundle)
             }
         })
-
-        viewModel.initTimer()
 
         viewModel.timerData.observe(viewLifecycleOwner, Observer {
             tv_timer.text = it
@@ -61,4 +60,6 @@ class GameBoardFragment : Fragment() {
     private fun onChangeAdapterData(cardList: List<Card>) {
         (rv_game_board.adapter as GameBoardAdapter).setData(cardList)
     }
+
+
 }
