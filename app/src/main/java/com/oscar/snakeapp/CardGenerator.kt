@@ -2,7 +2,7 @@ package com.oscar.snakeapp
 
 class CardGenerator {
 
-    fun generateMatchingCards(numberOfCards: Int): List<Card> {
+    fun generateMatchingCards(numberOfCards: Int): MutableList<Card> {
         val cardList = mutableListOf<Card>()
         while (cardList.size < numberOfCards) {
             val randomPair = generateRandomPair()
@@ -47,5 +47,4 @@ class CardGenerator {
         const val ASSET_SEVEN = R.drawable.ic_asset_7
         const val ASSET_EIGHT = R.drawable.ic_asset_8
     }
-
 }

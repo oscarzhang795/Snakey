@@ -40,6 +40,12 @@ class GameBoardFragment : Fragment() {
                 findNavController().navigate(it.resourceId, it.bundle)
             }
         })
+
+        viewModel.initTimer()
+
+        viewModel.timerData.observe(viewLifecycleOwner, Observer {
+            tv_timer.text = it
+        })
     }
 
     private fun initializeGrid() {
