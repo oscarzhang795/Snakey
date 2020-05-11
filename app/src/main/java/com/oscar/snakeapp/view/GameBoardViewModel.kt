@@ -48,6 +48,7 @@ class GameBoardViewModel : ViewModel() {
         if (matchCount == 8) {
             launchScoreFragment()
             timer.reset()
+            matchCount = 0
         }
     }
 

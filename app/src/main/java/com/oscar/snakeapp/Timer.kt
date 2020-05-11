@@ -7,13 +7,14 @@ class Timer {
     var seconds = 0
 
     var listener: OnTickListener? = null
+    var job: Job? = null
 
     fun setOnTickListener(listener: OnTickListener) {
         this.listener = listener
     }
 
     fun startTimer() {
-        GlobalScope.launch {
+        job = GlobalScope.launch {
             for (i in 0 until Integer.MAX_VALUE) {
                 delay(1000)
                 seconds++
@@ -39,6 +40,7 @@ class Timer {
     fun reset() {
         minutes = 0
         seconds = 0
+        job?.cancel()
     }
 
     interface OnTickListener {
